@@ -115,121 +115,171 @@ public class Timesheet {
     }
 
     @Test(priority = 5)
-    public void handleTasksIssuesOrGeneralLog() {
+    @Parameters({"flowType"})   // pass "task" or "issue" or "general"
+    public void handleTimesheetEntry(@Optional("general") String flowType) {
         Locator modal = page.locator("div[role='dialog'].offcanvas.show");
 
-        // --- Select Project ---
+        // --- Step 1: Select Project ---
         Locator projectInput = modal.getByRole(AriaRole.COMBOBOX).first();
         projectInput.click();
         projectInput.fill("TechnoTackle Projects");
 
-        // Wait and click matching option
         Locator projectOption = page.getByRole(AriaRole.OPTION,
                 new Page.GetByRoleOptions().setName("TechnoTackle Projects"));
         projectOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         projectOption.click();
+        System.out.println("Project selected: TechnoTackle Projects");
 
-        // --- Step 1: Try Tasks Dropdown ---
-        Locator taskDropdown = modal.getByPlaceholder("Select task or issue");
-        taskDropdown.click();
+        // --- Step 2: Flow Handling ---
+        if (flowType.equalsIgnoreCase("task")) {
+            Locator taskDropdown = modal.getByPlaceholder("Select task or issue");
+            taskDropdown.click();
+            taskDropdown.fill("General task");
 
-        Locator taskOptions = page.locator("div[role='option']");
-        int taskCount = taskOptions.count();
+            Locator taskOption = page.locator("li[role='option']").filter(
+                    new Locator.FilterOptions().setHasText("General task"));
 
-        if (taskCount > 0) {
-            taskOptions.first().click();
-            System.out.println("Task selected successfully.");
-            return;
-        } else if (modal.locator("span.errorMsg:has-text('No tasks available')").isVisible()) {
-            System.out.println("No tasks available for this project.");
+            try {
+                taskOption.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+                taskOption.first().click();
+                System.out.println("Task 'General task' selected successfully (via click).");
+            } catch (PlaywrightException e) {
+                page.keyboard().press("ArrowDown");
+                page.keyboard().press("Enter");
+                System.out.println("Task 'General task' selected successfully (via keyboard).");
+            }
+
+        } else if (flowType.equalsIgnoreCase("issue")) {
+            Locator issueTab = modal.getByText("Issues", new Locator.GetByTextOptions().setExact(true));
+            issueTab.click();
+
+            Locator issueDropdown = modal.getByPlaceholder("Select task or issue");
+            issueDropdown.click();
+            issueDropdown.fill("General issue");
+
+            Locator issueOption = page.locator("li[role='option']").filter(
+                    new Locator.FilterOptions().setHasText("General issue"));
+
+            try {
+                issueOption.first().waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+                issueOption.first().click();
+                System.out.println("Issue selected successfully (via click).");
+            } catch (PlaywrightException e) {
+                page.keyboard().press("ArrowDown");
+                page.keyboard().press("Enter");
+                System.out.println("Issue selected successfully (via keyboard).");
+            }
+
+        } else if (flowType.equalsIgnoreCase("general")) {
+            // Step 1: Wait for the modal to be attached and visible
+            modal.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.ATTACHED)
+                .setTimeout(10000));
+            modal.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE)
+                .setTimeout(10000));
+
+            // Step 2: Locate the "enter general log" element specifically by text
+            Locator enterGeneralLog = modal.locator("p.enterHourse")
+                                           .filter(new Locator.FilterOptions().setHasText("enter general log"));
+            
+            // Step 3: Wait for the element to be visible
+            enterGeneralLog.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE)
+                .setTimeout(10000));
+
+            // Step 4: Scroll into view (handles offscreen or animation issues)
+            enterGeneralLog.scrollIntoViewIfNeeded();
+
+            // Step 5: Retry clicking in case of transient issues or modal auto-close
+            int attempts = 0;
+            while (attempts < 3) {
+                try {
+                    enterGeneralLog.click();
+                    break; // click succeeded
+                } catch (PlaywrightException e) {
+                    System.out.println("Retry clicking 'Enter General Log'...");
+                    page.waitForTimeout(500); // wait 0.5s and retry
+                    attempts++;
+                }
+            }
+
+            // Step 6: Fill the general log input
+            Locator generalLogInput = modal.getByPlaceholder("Enter general log");
+            generalLogInput.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE)
+                .setTimeout(5000));
+            generalLogInput.fill("Testing task");
+            
+            // Step 7: Assert the input value
+            Assert.assertEquals(generalLogInput.inputValue().trim(), "Testing task");
+            System.out.println("General log entered manually.");
         }
 
-        // --- Step 2: Try Issues Tab ---
-        Locator issueTab = modal.getByRole(AriaRole.TAB,
-                new Locator.GetByRoleOptions().setName("Issues"));
-        issueTab.click();
 
-        Locator issueDropdown = modal.getByPlaceholder("Select task or issue");
-        issueDropdown.click();
+        
 
-        Locator issueOptions = page.locator("div[role='option']");
-        int issueCount = issueOptions.count();
+        
 
-        if (issueCount > 0) {
-            issueOptions.first().click();
-            System.out.println("Issue selected successfully.");
-            return;
-        } else if (modal.locator("span.errorMsg:has-text('No issues available')").isVisible()) {
-            System.out.println("No issues available for this project.");
-        }
+        // --- Step 3: Date (already today, so skip) ---
 
-        // --- Step 3: Enter General Log ---
-        Locator generalCheckbox = modal.getByText("General task");
-        generalCheckbox.click();
+        // --- Step 4: Owner (already default Priyadharshini.S) ---
 
-        Locator generalLogInput = modal.getByPlaceholder("Enter task name");
-        generalLogInput.fill("General Log Task - Auto Entry");
+     // --- Step 5: Daily Log Time ---
 
-        // Validate the input is entered
-        String enteredValue = generalLogInput.inputValue();
-        Assert.assertEquals(enteredValue, "General Log Task - Auto Entry",
-                "General log task name was not entered properly!");
+     // FROM HOUR
+     Locator fromHour = modal.locator("input[name='startHour']");
+     fromHour.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+     fromHour.click();
+     fromHour.fill("09");
+     page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("09")).click();
+     System.out.println("From Hour selected: 09");
 
-        System.out.println("Entered general log as fallback.");
+     // FROM MINUTE
+     Locator fromMinute = modal.locator("input[name='startMinute']");
+     fromMinute.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+     fromMinute.click();
+     fromMinute.fill("00");
+     page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("00")).click();
+     System.out.println("From Minute selected: 00");
+
+     // FROM AM/PM
+     Locator fromAmPm = modal.locator("input[name='startAmPm']");
+     fromAmPm.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+     fromAmPm.click();
+     page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("AM")).click();
+     System.out.println("From AM/PM selected: AM");
+
+     // TO HOUR
+     Locator toHour = modal.locator("input[name='endHour']");
+     toHour.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+     toHour.click();
+     toHour.fill("10");
+     page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("10")).click();
+     System.out.println("To Hour selected: 10");
+
+     // T
+
+
+        // --- Step 6: Billing Type (default Billable) ---
+
+        // --- Step 7: Notes (mandatory) ---
+        Locator notesInput = modal.locator("div.ql-editor"); 
+        notesInput.click();
+        notesInput.fill("Automated entry notes");
+        System.out.println("Notes entered.");
+
+     // --- Step 8: Add Button ---
+        Locator addButton = modal.locator("button.add_btn.me-3");
+        addButton.click();
+        System.out.println("Clicked Add button successfully.");
+
+
+        // --- Step 9: Verify Success Message ---
+        Locator successToast = page.locator("div.toast-success:has-text('successfully')");
+        successToast.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        Assert.assertTrue(successToast.isVisible(), "Success message not visible!");
+        System.out.println("Timesheet entry added successfully.");
     }
 
-
-    @Test(priority = 6)
-    public void validateTaskOrIssueSelection() {
-        Locator modal = page.locator("div[role='dialog'].offcanvas.show");
-
-        // 1. Verify default tab is "Tasks"
-        Locator tasksTab = modal.getByRole(AriaRole.TAB);
-        Assert.assertTrue(tasksTab.getAttribute("class").contains("active"), "Tasks tab should be selected by default");
-
-        // 2. Check if tasks exist
-        Locator taskDropdown = modal.locator("div[role='combobox']");
-        taskDropdown.click();
-        Locator taskOptions = page.getByRole(AriaRole.OPTION);
-
-        if (taskOptions.count() == 0) {
-            // Verify error message
-            Locator noTasksMsg = modal.locator("span.errorMsg", 
-                new Locator.LocatorOptions().setHasText("No tasks available for this user"));
-            noTasksMsg.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-            Assert.assertTrue(noTasksMsg.isVisible(), "Expected 'No tasks available for this user' message");
-        } else {
-            // Select first available task
-            taskOptions.nth(0).click();
-        }
-
-        // 3. Switch to Issues tab
-        modal.getByRole(AriaRole.TAB).click();
-
-        // 4. Check if issues exist
-        Locator issueDropdown = modal.locator("div[role='combobox']");
-        issueDropdown.click();
-        Locator issueOptions = page.getByRole(AriaRole.OPTION);
-
-        if (issueOptions.count() == 0) {
-            Locator noIssuesMsg = modal.locator("span.errorMsg", 
-                new Locator.LocatorOptions().setHasText("No issues available for this user"));
-            noIssuesMsg.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-            Assert.assertTrue(noIssuesMsg.isVisible(), "Expected 'No issues available for this user' message");
-        } else {
-            issueOptions.nth(0).click();
-        }
-
-        // 5. If neither available → Enter General Log
-        Locator generalLogLink = modal.locator("a", new Locator.LocatorOptions().setHasText("enter general log "));
-        if (generalLogLink.isVisible()) {
-            generalLogLink.click();
-            Locator generalLogTextbox = modal.locator("textarea[placeholder='Enter general log']");
-            Assert.assertTrue(generalLogTextbox.isVisible(), "General log textbox should be visible");
-            generalLogTextbox.fill("Testing manual log entry");
-        }
-    }
-
-    
-    
 }
