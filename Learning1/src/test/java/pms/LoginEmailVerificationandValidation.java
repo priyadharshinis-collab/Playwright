@@ -1,4 +1,4 @@
-package playwrightLearning;
+package pms;
 
 import com.microsoft.playwright.*;
 import org.testng.Assert;
