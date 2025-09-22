@@ -13,13 +13,15 @@ public class Timesheet {
     private static Page page;
 
     @BeforeClass
-    public static void setUp() {
-        // Initialize Playwright and launch the browser
-        Playwright playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-        page = browser.newPage();
+    public void setUp() {
+        browser = LoginUtil.launchBrowser();
+        page = LoginUtil.loginUser(browser, "priyadharshini.s@technotackle.com", "Priya@123");
     }
 
+    @AfterClass
+    public void tearDown() {
+        LoginUtil.closeBrowser(browser);
+    }
     private String handleToast1() {
         Locator toast = page.locator(".Toastify__toast-body");
         toast.waitFor(new Locator.WaitForOptions()

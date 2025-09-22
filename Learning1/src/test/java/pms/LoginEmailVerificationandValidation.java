@@ -11,13 +11,18 @@ public class LoginEmailVerificationandValidation {
     Page page;
 
     @BeforeClass
-    public void setup() {
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(
-                new BrowserType.LaunchOptions().setHeadless(false));
-        page = browser.newPage();
+    public void setUp() {
+        browser = LoginUtil.launchBrowser();
+        page = browser.newPage();  // Do not login automatically
         page.navigate("https://pms.technotackle.in/login");
     }
+
+    @AfterClass
+    public void tearDown() {
+        LoginUtil.closeBrowser(browser);
+    }
+
+
 
     @Test(priority = 1)
     public void verifyEmailFieldProperties() {
@@ -130,9 +135,5 @@ public class LoginEmailVerificationandValidation {
         }
     }
 
-    @AfterClass
-    public void tearDown() {
-        browser.close();
-        playwright.close();
-    }
+   
 }

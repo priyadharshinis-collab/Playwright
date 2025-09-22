@@ -13,13 +13,15 @@ import org.testng.annotations.*;
 		    private static Page page;
 
 		    @BeforeClass
-		    public static void setUp() {
-		        // Initialize Playwright and launch the browser
-		        Playwright playwright = Playwright.create();
-		        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
-		        page = browser.newPage();
+		    public void setUp() {
+		        browser = LoginUtil.launchBrowser();
+		        page = LoginUtil.loginUser(browser, "priyadharshini.s@technotackle.com", "Priya@123");
 		    }
 
+		    @AfterClass
+		    public void tearDown() {
+		        LoginUtil.closeBrowser(browser);
+		    }
 		    private String handleToast1() {
 		        Locator toast = page.locator(".Toastify__toast-body");
 		        toast.waitFor(new Locator.WaitForOptions()
@@ -163,7 +165,7 @@ import org.testng.annotations.*;
 		        Locator modal = page.locator("div[role='dialog'].offcanvas.show");
 		        modal.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
 
-		     // --- Step 1: Select Project ---
+		        // --- Step 1: Select Project ---
 		        Locator projectInput = modal.getByRole(AriaRole.COMBOBOX).first();
 		        projectInput.click();
 		        projectInput.fill("TechnoTackle Projects");
@@ -182,32 +184,94 @@ import org.testng.annotations.*;
 		        descriptionField.click(); // focus into editor
 		        descriptionField.type("This issue was created with all fields for testing in Playwright.");
 
-		        // Followers dropdown (optional)
-		     // Followers dropdown (Material UI Autocomplete)
-		        Locator followersInput = modal.locator("input#followers");
-		        followersInput.click();
-		        followersInput.type("Priyadharshini"); // type name or keyword
+		        // Followers (Autocomplete - optional / multiple)
+		        Locator followersInput1 = modal.locator("input#followers");
+		        followersInput1.click();
+		        followersInput1.type("Priyadharshini.S (YOU)", new Locator.TypeOptions().setDelay(100)); 
 
-		        // Wait for the suggestion list to appear and select first match
-		        Locator option = page.locator("li.MuiAutocomplete-option").first();
-		        option.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		        option.click();
+		        Locator followerOption = page.getByRole(AriaRole.OPTION,
+		            new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
+		        followerOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		        followerOption.scrollIntoViewIfNeeded();
+		        followerOption.click();
+		        System.out.println("Follower added: Priyadharshini.S (YOU)");
+		        
+		     // ✅ Close dropdown by clicking followers field again
+		        followersInput1.click();
+
+		        // --- Select Assignee ---
+		        Locator assigneeDropdown = modal.locator("div[role='combobox']#Assignee");
+		        assigneeDropdown.click();
+
+		        Locator assigneeOption = page.getByRole(AriaRole.OPTION, 
+		            new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
+		        assigneeOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		        assigneeOption.click();
+		        System.out.println("Assignee selected: Priyadharshini.S (YOU)");
+
+		     // Due Date (MUI text input)
+		        Locator dueDateInput = modal.locator("input[name='DueDate']");
+
+		        // Click to focus
+		        dueDateInput.click();
+
+		        // Clear any prefilled value
+		        dueDateInput.press("Control+A");
+		        dueDateInput.press("Delete");
+
+		        // Type in DD/MM/YYYY format
+		        dueDateInput.type("30/09/2025", new Locator.TypeOptions().setDelay(100));
+
+		        System.out.println("Due Date entered: 30/09/2025");
+
+		     // --- Wait for the modal to appear ---
+		        Locator modal1 = page.locator("div[role='dialog'].offcanvas.show");
+		        modal1.waitFor(new Locator.WaitForOptions()
+		                .setState(WaitForSelectorState.VISIBLE)
+		                .setTimeout(5000));
+
+		     //// --- Wait for the modal to appear ---
+		        Locator modal2 = page.locator("div[role='dialog'].offcanvas.show");
+		        modal.waitFor(new Locator.WaitForOptions()
+		                .setState(WaitForSelectorState.VISIBLE)
+		                .setTimeout(5000));
+
+		        // --- Locate the Priority combobox relative to its label ---
+		        Locator priorityDropdown = modal.locator("text=Priority")
+		                                        .locator("..") // move to parent container
+		                                        .locator("div[role='combobox']");
+		        priorityDropdown.scrollIntoViewIfNeeded();
+		        priorityDropdown.click();
+
+		        // --- Select the option (portal-safe) ---
+		        Locator priorityOption = page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("High"));
+		        priorityOption.waitFor(new Locator.WaitForOptions()
+		                .setState(WaitForSelectorState.VISIBLE)
+		                .setTimeout(3000));
+		        priorityOption.click();
+
+		        System.out.println("Priority selected: High");
 
 
-		        // Assignee (mandatory)
-		        modal.locator("select[name='assignee']").selectOption(new SelectOption().setLabel("Priyadharshini"));
 
-		        // Due Date (optional)
-		        modal.locator("input[name='DueDate']").fill("2025-09-30");
+		     // --- Locate the Severity combobox inside the modal by ID ---
+		        Locator severityDropdown = modal.locator("div#Severity[role='combobox']");
+		        severityDropdown.scrollIntoViewIfNeeded();
+		        severityDropdown.click();
 
-		        // Priority dropdown (optional)
-		        modal.locator("select[name='priority']").selectOption(new SelectOption().setLabel("High"));
+		        // --- Select the option from the portal ---
+		        Locator severityOption = page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Critical"));
+		        severityOption.waitFor(new Locator.WaitForOptions()
+		                .setState(WaitForSelectorState.VISIBLE)
+		                .setTimeout(3000));
+		        severityOption.click();
 
-		        // Severity dropdown (optional)
-		        modal.locator("select[name='severity']").selectOption(new SelectOption().setLabel("Critical"));
+		        System.out.println("Severity selected: Critical");
+
 
 		        // Click Add More
-		        modal.getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add more")).click();
+		        modal1.getByRole(AriaRole.BUTTON, 
+		            new Locator.GetByRoleOptions().setName("Add more")).click();
 
 		        // Expect success toast
 		        String toastMsg = handleToast1();
@@ -217,15 +281,9 @@ import org.testng.annotations.*;
 		            "Expected success toast, got: " + toastMsg);
 
 		        // After "Add more", modal should reopen
-		        Assert.assertTrue(modal.isVisible(), "Modal did not reopen after Add more!");
+		        Assert.assertTrue(modal1.isVisible(), "Modal did not reopen after Add more!");
 		    }
 
-		    
-		    
-		    
-		    
-		    
-		    
 		    
 		    
 }

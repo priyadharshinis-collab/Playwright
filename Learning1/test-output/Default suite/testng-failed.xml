@@ -5,9 +5,14 @@
     <classes>
       <class name="pms.AddIssueFlow">
         <methods>
+          <include name="loginAsUser"/>
+          <include name="openAddTimeLogModal"/>
+          <include name="navigateToTimesheetTab"/>
           <include name="submitIssueWithAllFields"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="submitIssueWithMandatoryFields"/>
+          <include name="validateAddButtonWithoutProjectSelection"/>
         </methods>
       </class> <!-- pms.AddIssueFlow -->
     </classes>
