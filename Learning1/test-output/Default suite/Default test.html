@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>4/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Sep 20 14:24:09 IST 2025</td>
+<td>Started on:</td><td>Mon Sep 22 10:38:23 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>31 seconds (31850 ms)</td>
+<tr><td>Total time:</td><td>39 seconds (39897 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,295 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='pms.AddIssueFlow.submitIssueWithMandatoryFields()'><b>submitIssueWithMandatoryFields</b><br>Test class: pms.AddIssueFlow</td>
+<td><div><pre>com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator(&quot;div[role=&apos;dialog&apos;].offcanvas.show&quot;).locator(&quot;input[name=&apos;issueName&apos;]&quot;)
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:335)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$fill$14(FrameImpl.java:325)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
+	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:235)
+	at com.microsoft.playwright.Locator.fill(Locator.java:2988)
+	at pms.AddIssueFlow.submitIssueWithMandatoryFields(AddIssueFlow.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator(&quot;div[role=&apos;dialog&apos;].offcanvas.show&quot;).locator(&quot;input[name=&apos;issueName&apos;]&quot;)
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 38 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1175631958", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1175631958'><pre>com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator(&quot;div[role=&apos;dialog&apos;].offcanvas.show&quot;).locator(&quot;input[name=&apos;issueName&apos;]&quot;)
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.fillImpl(FrameImpl.java:335)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$fill$14(FrameImpl.java:325)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.fill(FrameImpl.java:325)
+	at com.microsoft.playwright.impl.LocatorImpl.fill(LocatorImpl.java:235)
+	at com.microsoft.playwright.Locator.fill(Locator.java:2988)
+	at pms.AddIssueFlow.submitIssueWithMandatoryFields(AddIssueFlow.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator(&quot;div[role=&apos;dialog&apos;].offcanvas.show&quot;).locator(&quot;input[name=&apos;issueName&apos;]&quot;)
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 38 more
+</pre></div></td>
+<td>12</td>
+<td>pms.AddIssueFlow@22e357dc</td></tr>
+<tr>
+<td title='pms.AddIssueFlow.submitIssueWithAllFields()'><b>submitIssueWithAllFields</b><br>Test class: pms.AddIssueFlow</td>
+<td><div><pre>com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError: Target page, context or browser has been closed
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:273:44)
+    at transport.onmessage (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\cli\driver.js:52:57)
+    at Immediate._onImmediate (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\protocol\transport.js:77:34)
+    at process.processImmediate (node:internal/timers:483:21)
+}
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
+	at com.microsoft.playwright.Locator.click(Locator.java:2406)
+	at pms.AddIssueFlow.submitIssueWithAllFields(AddIssueFlow.java:151)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError: Target page, context or browser has been closed
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:273:44)
+    at transport.onmessage (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\cli\driver.js:52:57)
+    at Immediate._onImmediate (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\protocol\transport.js:77:34)
+    at process.processImmediate (node:internal/timers:483:21)
+}
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 38 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace2043106095", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2043106095'><pre>com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError: Target page, context or browser has been closed
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:273:44)
+    at transport.onmessage (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\cli\driver.js:52:57)
+    at Immediate._onImmediate (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\protocol\transport.js:77:34)
+    at process.processImmediate (node:internal/timers:483:21)
+}
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
+	at com.microsoft.playwright.Locator.click(Locator.java:2406)
+	at pms.AddIssueFlow.submitIssueWithAllFields(AddIssueFlow.java:151)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message=&apos;Target page, context or browser has been closed
+  name=&apos;TargetClosedError
+  stack=&apos;TargetClosedError: Target page, context or browser has been closed
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\server\dispatchers\dispatcher.js:273:44)
+    at transport.onmessage (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\cli\driver.js:52:57)
+    at Immediate._onImmediate (C:\Users\AVITA\AppData\Local\Temp\playwright-java-10665219907676861274\package\lib\protocol\transport.js:77:34)
+    at process.processImmediate (node:internal/timers:483:21)
+}
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 38 more
+</pre></div></td>
+<td>0</td>
+<td>pms.AddIssueFlow@22e357dc</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,25 +365,25 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='playwrightLearning.AddIssueFlow.openAddTimeLogModal()'><b>openAddTimeLogModal</b><br>Test class: playwrightLearning.AddIssueFlow</td>
+<td title='pms.AddIssueFlow.navigateToTimesheetTab()'><b>navigateToTimesheetTab</b><br>Test class: pms.AddIssueFlow</td>
 <td></td>
 <td>0</td>
-<td>playwrightLearning.AddIssueFlow@306f16f3</td></tr>
+<td>pms.AddIssueFlow@22e357dc</td></tr>
 <tr>
-<td title='playwrightLearning.AddIssueFlow.loginAsUser()'><b>loginAsUser</b><br>Test class: playwrightLearning.AddIssueFlow</td>
+<td title='pms.AddIssueFlow.loginAsUser()'><b>loginAsUser</b><br>Test class: pms.AddIssueFlow</td>
 <td></td>
-<td>6</td>
-<td>playwrightLearning.AddIssueFlow@306f16f3</td></tr>
+<td>11</td>
+<td>pms.AddIssueFlow@22e357dc</td></tr>
 <tr>
-<td title='playwrightLearning.AddIssueFlow.navigateToTimesheetTab()'><b>navigateToTimesheetTab</b><br>Test class: playwrightLearning.AddIssueFlow</td>
-<td></td>
-<td>0</td>
-<td>playwrightLearning.AddIssueFlow@306f16f3</td></tr>
-<tr>
-<td title='playwrightLearning.AddIssueFlow.validateAddButtonWithoutProjectSelection()'><b>validateAddButtonWithoutProjectSelection</b><br>Test class: playwrightLearning.AddIssueFlow</td>
+<td title='pms.AddIssueFlow.validateAddButtonWithoutProjectSelection()'><b>validateAddButtonWithoutProjectSelection</b><br>Test class: pms.AddIssueFlow</td>
 <td></td>
 <td>0</td>
-<td>playwrightLearning.AddIssueFlow@306f16f3</td></tr>
+<td>pms.AddIssueFlow@22e357dc</td></tr>
+<tr>
+<td title='pms.AddIssueFlow.openAddTimeLogModal()'><b>openAddTimeLogModal</b><br>Test class: pms.AddIssueFlow</td>
+<td></td>
+<td>0</td>
+<td>pms.AddIssueFlow@22e357dc</td></tr>
 </table><p>
 </body>
 </html>

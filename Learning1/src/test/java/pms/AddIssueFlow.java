@@ -115,16 +115,35 @@ import org.testng.annotations.*;
 
 		    @Test(priority = 5)
 		    public void submitIssueWithMandatoryFields() {
-		        Locator modal = page.locator("div[role='dialog'].offcanvas.show");
+		    	Locator modal = page.locator("div[role='dialog'].offcanvas.show");
 
-		        // Select Project
-		        modal.locator("select[name='project']").selectOption(new SelectOption().setLabel("23-01.3 TDISDI Project"));
+		        // --- Step 1: Select Project ---
+		        Locator projectInput = modal.getByRole(AriaRole.COMBOBOX).first();
+		        projectInput.click();
+		        projectInput.fill("TechnoTackle Projects");
+
+		        Locator projectOption = page.getByRole(AriaRole.OPTION,
+		                new Page.GetByRoleOptions().setName("TechnoTackle Projects"));
+		        projectOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		        projectOption.click();
+		        System.out.println("Project selected: TechnoTackle Projects");
 
 		        // Enter Issue Name
-		        modal.locator("input[name='issueName']").fill("Automation Test Issue - Mandatory");
+		        modal.locator("input[name='issue_name']").fill("Automation Test Issue - Mandatory");
 
 		        // Select Assignee
-		        modal.locator("select[name='assignee']").selectOption(new SelectOption().setLabel("Priyadharshini"));
+		     // --- Select Assignee ---
+		        Locator assigneeDropdown = modal.locator("div[role='combobox']#Assignee");
+		        assigneeDropdown.click(); // Open dropdown
+
+		        // Wait for options to appear
+		        Locator assigneeOption = page.getByRole(AriaRole.OPTION, 
+		            new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
+
+		        assigneeOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+		        assigneeOption.click();
+
+		        System.out.println("Assignee selected: Priyadharshini.S (YOU)");
 
 		        // Click Add
 		        modal.getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add").setExact(true)).click();
