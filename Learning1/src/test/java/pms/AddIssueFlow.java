@@ -1,289 +1,193 @@
 package pms;
-import com.microsoft.playwright.*;
-import com.microsoft.playwright.options.WaitForSelectorState;
-import com.microsoft.playwright.options.AriaRole;
-import com.microsoft.playwright.options.SelectOption;
 
+import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.AriaRole;
+import com.microsoft.playwright.options.WaitForSelectorState;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-		public class AddIssueFlow {
+public class AddIssueFlow {
 
-		    private static Browser browser;
-		    private static Page page;
+    private Browser browser;
+    private Page page;
 
-		    @BeforeClass
-		    public void setUp() {
-		        browser = LoginUtil.launchBrowser();
-		        page = LoginUtil.loginUser(browser, "priyadharshini.s@technotackle.com", "Priya@123");
-		    }
+    // ================== Setup & Teardown ==================
+    @BeforeClass
+    public void setUp() {
+        browser = LoginUtil.launchBrowser();
+        page = LoginUtil.loginUser(browser, "priyadharshini.s@technotackle.com", "Priya@123");
+    }
 
-		    @AfterClass
-		    public void tearDown() {
-		        LoginUtil.closeBrowser(browser);
-		    }
-		    private String handleToast1() {
-		        Locator toast = page.locator(".Toastify__toast-body");
-		        toast.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE)
-		                .setTimeout(5000));
+    @AfterClass
+    public void tearDown() {
+        LoginUtil.closeBrowser(browser);
+    }
 
-		        String toastMsg = toast.textContent();
+    // ================== Helper Methods ==================
+    private String handleToast() {
+        Locator toast = page.locator(".Toastify__toast-body");
+        toast.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE)
+                .setTimeout(5000));
+        String message = toast.textContent();
 
-		        // If toast has a close button, click it
-		        Locator closeBtn = page.locator("button.Toastify__close-button");
-		        if (closeBtn.isVisible()) {
-		            closeBtn.click();
-		        }
+        Locator closeBtn = page.locator("button.Toastify__close-button");
+        if (closeBtn.isVisible()) closeBtn.click();
 
-		        // Wait for toast to disappear
-		        page.waitForSelector(".Toastify__toast-body",
-		                new Page.WaitForSelectorOptions().setState(WaitForSelectorState.DETACHED)
-		        );
+        page.waitForSelector(".Toastify__toast-body",
+                new Page.WaitForSelectorOptions().setState(WaitForSelectorState.DETACHED));
+        return message;
+    }
 
-		        return toastMsg;
-		    }
+    private void selectDropdownOption(Locator dropdown, String optionName) {
+        dropdown.scrollIntoViewIfNeeded();
+        dropdown.click();
 
-		    @Test(priority = 1)
-		    public void loginAsUser() {
-		        // Open the login page and log in as the user
-		        page.navigate("https://pms.technotackle.in/");
-		        page.fill("input[name='email']", "priyadharshini.s@technotackle.com");
-		        page.fill("input[name='password']", "Priya@123");
+        Locator option = page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(optionName));
+        option.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE)
+                .setTimeout(3000));
+        option.click();
+    }
 
-		        // Correct login button selector
-		        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
+    private Locator waitForModal() {
+        Locator modal = page.locator("div[role='dialog'].offcanvas.show");
+        modal.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE)
+                .setTimeout(5000));
+        return modal;
+    }
 
-		        // Handle toast after login
-		        String loginToast = handleToast1();
-		        System.out.println("Login Toast: " + loginToast);
-		        Assert.assertTrue(loginToast.toLowerCase().contains("success"),
-		                "Expected login success toast, got: " + loginToast);
+    private void selectProject(Locator modal, String projectName) {
+        Locator projectInput = modal.getByRole(AriaRole.COMBOBOX).first();
+        projectInput.click();
+        projectInput.fill(projectName);
 
-		        // Wait for dashboard after toast disappears
-		        page.waitForSelector("text=Dashboard");
-		    }
-	
-		    @Test(priority = 2)
-		    public void navigateToTimesheetTab() {
-		        // Click on the Timesheet tab
-		        page.click("img[alt='Issue Icon']");
-		    }
-		    @Test(priority = 3)
-		    public void openAddTimeLogModal() {
-		        //  Locate 'ADD LOG HOURS' button by role + text
-		        Locator addLogButton = page.getByRole(AriaRole.BUTTON,
-		                new Page.GetByRoleOptions().setName("ADD ISSUE"));
+        Locator projectOption = page.getByRole(AriaRole.OPTION,
+                new Page.GetByRoleOptions().setName(projectName));
+        projectOption.waitFor(new Locator.WaitForOptions()
+                .setState(WaitForSelectorState.VISIBLE));
+        projectOption.click();
 
-		        // Wait until visible
-		        addLogButton.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE));
+        System.out.println("Project selected: " + projectName);
+    }
 
-		        // Click safely
-		        addLogButton.click();
+    private void selectAssignee(Locator modal, String assigneeName) {
+        Locator assigneeDropdown = modal.locator("div[role='combobox']#Assignee");
+        selectDropdownOption(assigneeDropdown, assigneeName);
+        System.out.println("Assignee selected: " + assigneeName);
+    }
 
-		        // Wait for modal/dialog
-		        Locator addLogModal = page.locator("div[role='dialog'].offcanvas.show");
-		        addLogModal.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE));
-		    }
-		    
-		    @Test(priority = 4)
-		    public void validateAddButtonWithoutProjectSelection() {
-		        // Scope inside modal
-		        Locator modal = page.locator("div[role='dialog'].offcanvas.show");
+    private void selectPriorityAndSeverity(Locator modal, String priority, String severity) {
+        Locator priorityDropdown = modal.locator("text=Priority").locator("..").locator("div[role='combobox']");
+        selectDropdownOption(priorityDropdown, priority);
+        System.out.println("Priority selected: " + priority);
 
-		        // Click Add button inside modal
-		        Locator addButton = modal.getByRole(AriaRole.BUTTON,
-		            new Locator.GetByRoleOptions().setName("Add").setExact(true));
-		        addButton.click();
+        Locator severityDropdown = modal.locator("div#Severity[role='combobox']");
+        selectDropdownOption(severityDropdown, severity);
+        System.out.println("Severity selected: " + severity);
+    }
 
-		        // Target only the actual error message, not the "*"
-		        Locator errorLocator = modal.locator("span.errorMsg",
-		            new Locator.LocatorOptions().setHasText("Project field is required"));
+    private void fillDueDate(Locator modal, String dueDate) {
+        Locator dueDateInput = modal.locator("input[name='DueDate']");
+        dueDateInput.click();
+        dueDateInput.press("Control+A");
+        dueDateInput.press("Delete");
+        dueDateInput.type(dueDate);
+        System.out.println("Due Date entered: " + dueDate);
+    }
 
-		        // Wait until visible
-		        errorLocator.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE)
-		                .setTimeout(5000));
+    // ================== Tests ==================
+    @Test(priority = 1)
+    public void loginAsUserTest() {
+        page.navigate("https://pms.technotackle.in/");
+        page.fill("input[name='email']", "priyadharshini.s@technotackle.com");
+        page.fill("input[name='password']", "Priya@123");
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();
 
-		        // Assert text
-		        String errorMessage = errorLocator.textContent().trim();
-		        System.out.println("Error message displayed: " + errorMessage);
+        String toastMsg = handleToast();
+        System.out.println("Login Toast: " + toastMsg);
+        Assert.assertTrue(toastMsg.toLowerCase().contains("success"), "Expected login success toast");
+        page.waitForSelector("text=Dashboard");
+    }
 
-		        Assert.assertEquals(errorMessage, "Project field is required",
-		                "Validation message did not match expected text!");
-		    }
+    @Test(priority = 2)
+    public void navigateToIssueTabTest() {
+        page.click("img[alt='Issue Icon']");
+        System.out.println("Navigated to Issue tab.");
+    }
 
-		    @Test(priority = 5)
-		    public void submitIssueWithMandatoryFields() {
-		    	Locator modal = page.locator("div[role='dialog'].offcanvas.show");
+    @Test(priority = 3)
+    public void openAddIssueModalTest() {
+        Locator addButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD ISSUE"));
+        addButton.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        addButton.click();
+        waitForModal();
+        System.out.println("Add Issue modal opened.");
+    }
 
-		        // --- Step 1: Select Project ---
-		        Locator projectInput = modal.getByRole(AriaRole.COMBOBOX).first();
-		        projectInput.click();
-		        projectInput.fill("TechnoTackle Projects");
+    @Test(priority = 4)
+    public void validateAddButtonWithoutProjectTest() {
+        Locator modal = waitForModal();
+        Locator addButton = modal.getByRole(AriaRole.BUTTON,
+                new Locator.GetByRoleOptions().setName("Add").setExact(true));
+        addButton.click();
 
-		        Locator projectOption = page.getByRole(AriaRole.OPTION,
-		                new Page.GetByRoleOptions().setName("TechnoTackle Projects"));
-		        projectOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		        projectOption.click();
-		        System.out.println("Project selected: TechnoTackle Projects");
+        Locator errorLocator = modal.locator("span.errorMsg", new Locator.LocatorOptions().setHasText("Project field is required"));
+        errorLocator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE).setTimeout(5000));
 
-		        // Enter Issue Name
-		        modal.locator("input[name='issue_name']").fill("Automation Test Issue - Mandatory");
+        String errorMsg = errorLocator.textContent().trim();
+        System.out.println("Error message displayed: " + errorMsg);
+        Assert.assertEquals(errorMsg, "Project field is required");
+    }
 
-		        // Select Assignee
-		     // --- Select Assignee ---
-		        Locator assigneeDropdown = modal.locator("div[role='combobox']#Assignee");
-		        assigneeDropdown.click(); // Open dropdown
+    @Test(priority = 5)
+    public void submitIssueWithMandatoryFieldsTest() {
+        Locator modal = waitForModal();
+        selectProject(modal, "TechnoTackle Projects");
 
-		        // Wait for options to appear
-		        Locator assigneeOption = page.getByRole(AriaRole.OPTION, 
-		            new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
+        modal.locator("input[name='issue_name']").fill("Automation Test Issue - Mandatory");
+        selectAssignee(modal, "Priyadharshini.S (YOU)");
 
-		        assigneeOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		        assigneeOption.click();
+        modal.getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add").setExact(true)).click();
 
-		        System.out.println("Assignee selected: Priyadharshini.S (YOU)");
+        String toastMsg = handleToast();
+        System.out.println("Submit Issue (Mandatory) Toast: " + toastMsg);
+        Assert.assertTrue(toastMsg.toLowerCase().contains("success"));
+    }
 
-		        // Click Add
-		        modal.getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add").setExact(true)).click();
+    @Test(priority = 6)
+    public void submitIssueWithAllFieldsTest() {
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD ISSUE")).click();
+        Locator modal = waitForModal();
 
-		        // Capture toast
-		        String toastMsg = handleToast1();
-		        System.out.println("Submit Issue (Mandatory only) Toast: " + toastMsg);
+        selectProject(modal, "TechnoTackle Projects");
+        modal.locator("input[name='issue_name']").fill("Automation Test Issue - All Fields");
 
-		        Assert.assertTrue(toastMsg.toLowerCase().contains("success"), 
-		            "Expected success toast, got: " + toastMsg);
-		    }
+        // Optional description
+        Locator desc = modal.locator("div.ql-editor[contenteditable='true']");
+        desc.click();
+        desc.type("This issue was created with all fields for testing in Playwright.");
 
-		    @Test(priority = 6)
-		    public void submitIssueWithAllFields() {
-		        // Re-open modal
-		        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("ADD ISSUE")).click();
-		        Locator modal = page.locator("div[role='dialog'].offcanvas.show");
-		        modal.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        // Followers
+        Locator followers = modal.locator("input#followers");
+        followers.click();
+        followers.type("Priyadharshini.S (YOU)", new Locator.TypeOptions().setDelay(100));
+        Locator followerOption = page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
+        followerOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
+        followerOption.click();
+        followers.click(); // close dropdown
+        System.out.println("Follower added.");
 
-		        // --- Step 1: Select Project ---
-		        Locator projectInput = modal.getByRole(AriaRole.COMBOBOX).first();
-		        projectInput.click();
-		        projectInput.fill("TechnoTackle Projects");
+        selectAssignee(modal, "Priyadharshini.S (YOU)");
+        fillDueDate(modal, "30/09/2025");
 
-		        Locator projectOption = page.getByRole(AriaRole.OPTION,
-		                new Page.GetByRoleOptions().setName("TechnoTackle Projects"));
-		        projectOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		        projectOption.click();
-		        System.out.println("Project selected: TechnoTackle Projects");
+        selectPriorityAndSeverity(modal, "High", "Critical");
 
-		        // Issue Name
-		        modal.locator("input[name='issue_name']").fill("Automation Test Issue - All Fields");
-
-		        // Description (not mandatory)
-		        Locator descriptionField = modal.locator("div.ql-editor[contenteditable='true']");
-		        descriptionField.click(); // focus into editor
-		        descriptionField.type("This issue was created with all fields for testing in Playwright.");
-
-		        // Followers (Autocomplete - optional / multiple)
-		        Locator followersInput1 = modal.locator("input#followers");
-		        followersInput1.click();
-		        followersInput1.type("Priyadharshini.S (YOU)", new Locator.TypeOptions().setDelay(100)); 
-
-		        Locator followerOption = page.getByRole(AriaRole.OPTION,
-		            new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
-		        followerOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		        followerOption.scrollIntoViewIfNeeded();
-		        followerOption.click();
-		        System.out.println("Follower added: Priyadharshini.S (YOU)");
-		        
-		     // ✅ Close dropdown by clicking followers field again
-		        followersInput1.click();
-
-		        // --- Select Assignee ---
-		        Locator assigneeDropdown = modal.locator("div[role='combobox']#Assignee");
-		        assigneeDropdown.click();
-
-		        Locator assigneeOption = page.getByRole(AriaRole.OPTION, 
-		            new Page.GetByRoleOptions().setName("Priyadharshini.S (YOU)"));
-		        assigneeOption.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-		        assigneeOption.click();
-		        System.out.println("Assignee selected: Priyadharshini.S (YOU)");
-
-		     // Due Date (MUI text input)
-		        Locator dueDateInput = modal.locator("input[name='DueDate']");
-
-		        // Click to focus
-		        dueDateInput.click();
-
-		        // Clear any prefilled value
-		        dueDateInput.press("Control+A");
-		        dueDateInput.press("Delete");
-
-		        // Type in DD/MM/YYYY format
-		        dueDateInput.type("30/09/2025", new Locator.TypeOptions().setDelay(100));
-
-		        System.out.println("Due Date entered: 30/09/2025");
-
-		     // --- Wait for the modal to appear ---
-		        Locator modal1 = page.locator("div[role='dialog'].offcanvas.show");
-		        modal1.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE)
-		                .setTimeout(5000));
-
-		     //// --- Wait for the modal to appear ---
-		        Locator modal2 = page.locator("div[role='dialog'].offcanvas.show");
-		        modal.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE)
-		                .setTimeout(5000));
-
-		        // --- Locate the Priority combobox relative to its label ---
-		        Locator priorityDropdown = modal.locator("text=Priority")
-		                                        .locator("..") // move to parent container
-		                                        .locator("div[role='combobox']");
-		        priorityDropdown.scrollIntoViewIfNeeded();
-		        priorityDropdown.click();
-
-		        // --- Select the option (portal-safe) ---
-		        Locator priorityOption = page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("High"));
-		        priorityOption.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE)
-		                .setTimeout(3000));
-		        priorityOption.click();
-
-		        System.out.println("Priority selected: High");
-
-
-
-		     // --- Locate the Severity combobox inside the modal by ID ---
-		        Locator severityDropdown = modal.locator("div#Severity[role='combobox']");
-		        severityDropdown.scrollIntoViewIfNeeded();
-		        severityDropdown.click();
-
-		        // --- Select the option from the portal ---
-		        Locator severityOption = page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Critical"));
-		        severityOption.waitFor(new Locator.WaitForOptions()
-		                .setState(WaitForSelectorState.VISIBLE)
-		                .setTimeout(3000));
-		        severityOption.click();
-
-		        System.out.println("Severity selected: Critical");
-
-
-		        // Click Add More
-		        modal1.getByRole(AriaRole.BUTTON, 
-		            new Locator.GetByRoleOptions().setName("Add more")).click();
-
-		        // Expect success toast
-		        String toastMsg = handleToast1();
-		        System.out.println("Submit Issue (All fields) Toast: " + toastMsg);
-
-		        Assert.assertTrue(toastMsg.toLowerCase().contains("success"), 
-		            "Expected success toast, got: " + toastMsg);
-
-		        // After "Add more", modal should reopen
-		        Assert.assertTrue(modal1.isVisible(), "Modal did not reopen after Add more!");
-		    }
-
-		    
-		    
+        modal.getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add more")).click();
+        String toastMsg = handleToast();
+        System.out.println("Submit Issue (All fields) Toast: " + toastMsg);
+        Assert.assertTrue(toastMsg.toLowerCase().contains("success"));
+    }
 }
+

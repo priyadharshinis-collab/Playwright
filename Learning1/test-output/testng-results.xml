@@ -1,48 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-22T17:18:40 IST" name="Default suite" finished-at="2025-09-22T17:18:57 IST" duration-ms="17014">
+  <suite started-at="2025-09-22T17:47:08 IST" name="Default suite" finished-at="2025-09-22T17:47:40 IST" duration-ms="31935">
     <groups>
     </groups>
-    <test started-at="2025-09-22T17:18:40 IST" name="Default test" finished-at="2025-09-22T17:18:57 IST" duration-ms="17014">
-      <class name="pms.LoginEmailVerificationandValidation">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:pms.LoginEmailVerificationandValidation@223aa2f7]" started-at="2025-09-22T17:18:40 IST" name="setUp" finished-at="2025-09-22T17:18:57 IST" duration-ms="16581" status="PASS">
+    <test started-at="2025-09-22T17:47:08 IST" name="Default test" finished-at="2025-09-22T17:47:40 IST" duration-ms="31935">
+      <class name="pms.Timesheet">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:09 IST" name="setUp" finished-at="2025-09-22T17:47:26 IST" duration-ms="17126" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyEmailFieldProperties()[pri:1, instance:pms.LoginEmailVerificationandValidation@223aa2f7]" started-at="2025-09-22T17:18:57 IST" name="verifyEmailFieldProperties" finished-at="2025-09-22T17:18:57 IST" duration-ms="96" status="PASS">
+        <test-method signature="loginAsUser()[pri:1, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:26 IST" name="loginAsUser" finished-at="2025-09-22T17:47:28 IST" duration-ms="2835" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyEmailFieldProperties -->
-        <test-method is-config="true" signature="takeScreenshotOnFailure(org.testng.ITestResult)[pri:0, instance:pms.LoginEmailVerificationandValidation@223aa2f7]" started-at="2025-09-22T17:18:57 IST" name="takeScreenshotOnFailure" finished-at="2025-09-22T17:18:57 IST" duration-ms="3" status="PASS">
+        </test-method> <!-- loginAsUser -->
+        <test-method signature="navigateToTimesheetTab()[pri:2, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:28 IST" name="navigateToTimesheetTab" finished-at="2025-09-22T17:47:29 IST" duration-ms="110" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- navigateToTimesheetTab -->
+        <test-method signature="openAddTimeLogModal()[pri:3, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:29 IST" name="openAddTimeLogModal" finished-at="2025-09-22T17:47:29 IST" duration-ms="633" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openAddTimeLogModal -->
+        <test-method signature="validateAddButtonWithoutProjectSelection()[pri:4, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:29 IST" name="validateAddButtonWithoutProjectSelection" finished-at="2025-09-22T17:47:30 IST" duration-ms="419" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAddButtonWithoutProjectSelection -->
+        <test-method signature="handleTimesheetEntry(java.lang.String)[pri:5, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:30 IST" name="handleTimesheetEntry" finished-at="2025-09-22T17:47:40 IST" duration-ms="10423" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyEmailFieldProperties status=SUCCESS method=LoginEmailVerificationandValidation.verifyEmailFieldProperties()[pri:1, instance:pms.LoginEmailVerificationandValidation@223aa2f7] output={null}]]]>
+                <![CDATA[general]]>
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- takeScreenshotOnFailure -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pms.LoginEmailVerificationandValidation@223aa2f7]" started-at="2025-09-22T17:18:57 IST" name="tearDown" finished-at="2025-09-22T17:18:57 IST" duration-ms="280" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+          <exception class="com.microsoft.playwright.impl.TargetClosedError">
             <message>
-              <![CDATA[Cannot invoke "com.microsoft.playwright.Playwright.close()" because "this.playwright" is null]]>
+              <![CDATA[Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator("div.toast-success:has-text('successfully')") to be visible
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "com.microsoft.playwright.Playwright.close()" because "this.playwright" is null
-at pms.LoginEmailVerificationandValidation.tearDown(LoginEmailVerificationandValidation.java:141)
+              <![CDATA[com.microsoft.playwright.impl.TargetClosedError: Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator("div.toast-success:has-text('successfully')") to be visible
+
+at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1060)
+at com.microsoft.playwright.impl.LocatorImpl.lambda$waitForImpl$7(LocatorImpl.java:619)
+at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+at com.microsoft.playwright.impl.LocatorImpl.waitForImpl(LocatorImpl.java:619)
+at com.microsoft.playwright.impl.LocatorImpl.waitFor(LocatorImpl.java:615)
+at pms.Timesheet.handleTimesheetEntry(Timesheet.java:282)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
-at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:238)
-at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:223)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:137)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 at org.testng.TestRunner.privateRun(TestRunner.java:739)
 at org.testng.TestRunner.run(TestRunner.java:614)
@@ -59,17 +104,35 @@ at org.testng.TestNG.run(TestNG.java:1079)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
+  message='Target page, context or browser has been closed
+  name='TargetClosedError
+  stack='TargetClosedError:Target page, context or browser has been closed
+Error
+    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\stackTrace.js:49:17)
+    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:91:52)
+    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:84:17)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:96:36)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:361:39)
+}
+Call log:
+- waiting for locator("div.toast-success:has-text('successfully')") to be visible
+
+at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
+at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+... 35 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- com.microsoft.playwright.impl.TargetClosedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- handleTimesheetEntry -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:40 IST" name="tearDown" finished-at="2025-09-22T17:47:40 IST" duration-ms="309" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="tearDown1()[pri:0, instance:pms.LoginEmailVerificationandValidation@223aa2f7]" started-at="2025-09-22T17:18:57 IST" name="tearDown1" finished-at="2025-09-22T17:18:57 IST" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown1 -->
-      </class> <!-- pms.LoginEmailVerificationandValidation -->
+      </class> <!-- pms.Timesheet -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
