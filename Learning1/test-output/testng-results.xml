@@ -1,83 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-22T17:47:08 IST" name="Default suite" finished-at="2025-09-22T17:47:40 IST" duration-ms="31935">
+  <suite started-at="2025-09-23T12:28:05 IST" name="Default suite" finished-at="2025-09-23T12:28:12 IST" duration-ms="7824">
     <groups>
     </groups>
-    <test started-at="2025-09-22T17:47:08 IST" name="Default test" finished-at="2025-09-22T17:47:40 IST" duration-ms="31935">
-      <class name="pms.Timesheet">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:09 IST" name="setUp" finished-at="2025-09-22T17:47:26 IST" duration-ms="17126" status="PASS">
+    <test started-at="2025-09-23T12:28:05 IST" name="Default test" finished-at="2025-09-23T12:28:12 IST" duration-ms="7824">
+      <class name="API.getapi">
+        <test-method is-config="true" signature="setup()[pri:0, instance:API.getapi@22e357dc]" started-at="2025-09-23T12:28:05 IST" name="setup" finished-at="2025-09-23T12:28:11 IST" duration-ms="6775" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="loginAsUser()[pri:1, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:26 IST" name="loginAsUser" finished-at="2025-09-22T17:47:28 IST" duration-ms="2835" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginAsUser -->
-        <test-method signature="navigateToTimesheetTab()[pri:2, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:28 IST" name="navigateToTimesheetTab" finished-at="2025-09-22T17:47:29 IST" duration-ms="110" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateToTimesheetTab -->
-        <test-method signature="openAddTimeLogModal()[pri:3, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:29 IST" name="openAddTimeLogModal" finished-at="2025-09-22T17:47:29 IST" duration-ms="633" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openAddTimeLogModal -->
-        <test-method signature="validateAddButtonWithoutProjectSelection()[pri:4, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:29 IST" name="validateAddButtonWithoutProjectSelection" finished-at="2025-09-22T17:47:30 IST" duration-ms="419" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateAddButtonWithoutProjectSelection -->
-        <test-method signature="handleTimesheetEntry(java.lang.String)[pri:5, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:30 IST" name="handleTimesheetEntry" finished-at="2025-09-22T17:47:40 IST" duration-ms="10423" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[general]]>
-              </value>
-            </param>
-          </params>
-          <exception class="com.microsoft.playwright.impl.TargetClosedError">
+        </test-method> <!-- setup -->
+        <test-method signature="createUserApiTest()[pri:1, instance:API.getapi@22e357dc]" started-at="2025-09-23T12:28:11 IST" name="createUserApiTest" finished-at="2025-09-23T12:28:12 IST" duration-ms="740" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\stackTrace.js:49:17)
-    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:361:39)
-}
-Call log:
-- waiting for locator("div.toast-success:has-text('successfully')") to be visible
-]]>
+              <![CDATA[User creation failed! expected [201] but found [404]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[com.microsoft.playwright.impl.TargetClosedError: Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\stackTrace.js:49:17)
-    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:361:39)
-}
-Call log:
-- waiting for locator("div.toast-success:has-text('successfully')") to be visible
-
-at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:54)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1060)
-at com.microsoft.playwright.impl.LocatorImpl.lambda$waitForImpl$7(LocatorImpl.java:619)
-at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-at com.microsoft.playwright.impl.LocatorImpl.waitForImpl(LocatorImpl.java:619)
-at com.microsoft.playwright.impl.LocatorImpl.waitFor(LocatorImpl.java:615)
-at pms.Timesheet.handleTimesheetEntry(Timesheet.java:282)
+              <![CDATA[java.lang.AssertionError: User creation failed! expected [201] but found [404]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at API.getapi.createUserApiTest(getapi.java:42)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -104,35 +51,51 @@ at org.testng.TestNG.run(TestNG.java:1079)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.impl.TargetClosedError: Error {
-  message='Target page, context or browser has been closed
-  name='TargetClosedError
-  stack='TargetClosedError:Target page, context or browser has been closed
-Error
-    at captureRawStack (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\stackTrace.js:49:17)
-    at LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:91:52)
-    at LongStandingScope.race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\utils\manualPromise.js:84:17)
-    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:96:36)
-    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-6708339182182394754\package\lib\server\dispatchers\dispatcher.js:361:39)
-}
-Call log:
-- waiting for locator("div.toast-success:has-text('successfully')") to be visible
-
-at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:256)
-at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-... 35 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- com.microsoft.playwright.impl.TargetClosedError -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- handleTimesheetEntry -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pms.Timesheet@6a84a97d]" started-at="2025-09-22T17:47:40 IST" name="tearDown" finished-at="2025-09-22T17:47:40 IST" duration-ms="309" status="PASS">
+        </test-method> <!-- createUserApiTest -->
+        <test-method signature="loginApiTest()[pri:2, instance:API.getapi@22e357dc]" started-at="2025-09-23T12:28:12 IST" name="loginApiTest" finished-at="2025-09-23T12:28:12 IST" depends-on-methods="API.getapi.createUserApiTest" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method API.getapi.loginApiTest() on instance API.getapi@22e357dc depends on not successfully finished methods 
+[API.getapi.createUserApiTest() on instance API.getapi@22e357dc]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method API.getapi.loginApiTest() on instance API.getapi@22e357dc depends on not successfully finished methods 
+[API.getapi.createUserApiTest() on instance API.getapi@22e357dc]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- pms.Timesheet -->
+        </test-method> <!-- loginApiTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:API.getapi@22e357dc]" started-at="2025-09-23T12:28:12 IST" name="teardown" finished-at="2025-09-23T12:28:12 IST" duration-ms="260" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- API.getapi -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
