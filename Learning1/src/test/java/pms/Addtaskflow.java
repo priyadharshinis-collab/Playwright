@@ -132,7 +132,7 @@ public class Addtaskflow{
     public void addTaskWithMandatoryFieldsTest() {
         
     	
-    	
+    
     	
     	
     	
@@ -181,7 +181,6 @@ public class Addtaskflow{
 
         // Estimated hours
         modal.locator("input[name='estimated_hours']").fill("12");
-
         // Priority
         Locator priorityDropdown = modal.getByText("Priority").locator("..").locator("div[role='combobox']");
         selectDropdownOption(priorityDropdown, "High");
