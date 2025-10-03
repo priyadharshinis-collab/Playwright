@@ -6,10 +6,13 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class Addtaskflow{
+public class Addtaskflow {
 
     private Browser browser;
     private Page page;
+
+    private static final String PROJECT_NAME = "Akshayam";
+    private static final String TASK_LIST_NAME = "AutomationList1";
 
     // ================== Setup & Teardown ==================
     @BeforeClass
@@ -72,15 +75,17 @@ public class Addtaskflow{
     }
 
     private void selectTaskList(Locator modal, String taskListName) {
-        Locator taskListDropdown = modal.getByRole(AriaRole.COMBOBOX).nth(1); // adjust index if needed
+        Locator taskListDropdown = modal.getByRole(AriaRole.COMBOBOX).nth(1);
         selectDropdownOption(taskListDropdown, taskListName);
         System.out.println("Task List selected: " + taskListName);
     }
 
     private void createTaskListIfNotExists(String project, String taskListName) {
-        // Cancel modal
-        page.getByRole(AriaRole.BUTTON,
-                new Page.GetByRoleOptions().setName("Cancel")).click();
+        // Cancel modal if open
+        if (page.locator("div[role='dialog'].offcanvas.show").isVisible()) {
+            page.getByRole(AriaRole.BUTTON,
+                    new Page.GetByRoleOptions().setName("Cancel")).click();
+        }
 
         // Open Add Task List
         page.getByRole(AriaRole.BUTTON,
@@ -130,27 +135,19 @@ public class Addtaskflow{
 
     @Test(priority = 3)
     public void addTaskWithMandatoryFieldsTest() {
-        
-    	
-    
-    	
-    	
-    	
-    	
         Locator modal = waitForModal();
-        selectProject(modal, "24-14.1 - TDISDI Project");
+        selectProject(modal, PROJECT_NAME);
 
-        String taskListName = "AutomationList1";
-        createTaskListIfNotExists("24-14.1 - TDISDI Project", taskListName);
+        createTaskListIfNotExists(PROJECT_NAME, TASK_LIST_NAME);
 
         // Re-open Add Task
         page.getByRole(AriaRole.BUTTON,
                 new Page.GetByRoleOptions().setName("Add Task")).click();
         modal = waitForModal();
-        selectProject(modal, "24-14.1 - TDISDI Project");
+        selectProject(modal, PROJECT_NAME);
 
         modal.locator("input[name='task_title']").fill("Automation Task - Mandatory");
-        selectTaskList(modal, taskListName);
+        selectTaskList(modal, TASK_LIST_NAME);
 
         modal.getByRole(AriaRole.BUTTON,
                 new Locator.GetByRoleOptions().setName("Add").setExact(true)).click();
@@ -159,21 +156,19 @@ public class Addtaskflow{
         Assert.assertTrue(toastMsg.toLowerCase().contains("success"));
         System.out.println("Task created (Mandatory only).");
     }
-    
+
     @Test(priority = 4)
     public void addTaskWithAllFieldsTest() {
         page.getByRole(AriaRole.BUTTON,
                 new Page.GetByRoleOptions().setName("Add Task")).click();
 
         Locator modal = waitForModal();
-        selectProject(modal, "24-14.1 - TDISDI Project");
+        selectProject(modal, PROJECT_NAME);
 
         modal.locator("input[name='task_title']").fill("Automation Task - All Fields");
         modal.locator("textarea[name='description']").fill("Description for automation task.");
 
-        selectTaskList(modal, "AutomationList1");
-
-        // Owner is default, skip selection
+        selectTaskList(modal, TASK_LIST_NAME);
 
         // Dates
         modal.locator("input[name='start_date']").fill("01/10/2025");
@@ -181,11 +176,12 @@ public class Addtaskflow{
 
         // Estimated hours
         modal.locator("input[name='estimated_hours']").fill("12");
+
         // Priority
         Locator priorityDropdown = modal.getByText("Priority").locator("..").locator("div[role='combobox']");
         selectDropdownOption(priorityDropdown, "High");
 
-        // Billing method (default Billable, no action)
+        // Billing method (default Billable)
 
         modal.getByRole(AriaRole.BUTTON,
                 new Locator.GetByRoleOptions().setName("Add more").setExact(true)).click();
