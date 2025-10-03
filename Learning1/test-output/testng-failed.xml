@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="API.getapi">
+      <class name="pms.Addtaskflow">
         <methods>
-          <include name="createUserApiTest"/>
-          <include name="loginApiTest"/>
-          <include name="setup"/>
-          <include name="teardown"/>
+          <include name="addTaskWithAllFieldsTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="addTaskWithMandatoryFieldsTest"/>
         </methods>
-      </class> <!-- API.getapi -->
+      </class> <!-- pms.Addtaskflow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -17,7 +17,7 @@ public class LoginUtil {
     // Reusable login method
     public static Page loginUser(Browser browser, String username, String password) {
         Page page = browser.newPage();
-        page.navigate("https://pms.technotackle.in/");
+        page.navigate("https://pms.bacet.org/login");
         page.fill("input[name='email']", username);
         page.fill("input[name='password']", password);
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login")).click();

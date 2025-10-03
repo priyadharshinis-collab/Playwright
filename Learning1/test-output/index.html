@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\AVITA\AppData\Local\Temp\testng-eclipse--573290125\testng-customsuite.xml</span>
+                    <span>C:\Users\AVITA\AppData\Local\Temp\testng-eclipse-328340871\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,  1 skipped,  </span>
+                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,24 +103,34 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="API.getapi" class="method navigator-link" hash-for-method="createUserApiTest">createUserApiTest</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addtaskflow" class="method navigator-link" hash-for-method="addTaskWithAllFieldsTest">addTaskWithAllFieldsTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addtaskflow" class="method navigator-link" hash-for-method="addTaskWithMandatoryFieldsTest">addTaskWithMandatoryFieldsTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content skipped suite-Default_suite">
+                    <div class="method-list-content passed suite-Default_suite">
                       <span>
-                        <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="API.getapi" class="method navigator-link" hash-for-method="loginApiTest">loginApiTest</a> <!-- method navigator-link -->
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addtaskflow" class="method navigator-link" hash-for-method="openTaskMenuTest">openTaskMenuTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content skipped suite-Default_suite -->
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addtaskflow" class="method navigator-link" hash-for-method="validateAddButtonWithoutProjectTest">validateAddButtonWithoutProjectTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -135,22 +145,52 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">API.getapi</span>
+              <span class="class-name">pms.Addtaskflow</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createUserApiTest">
-                  </a> <!-- createUserApiTest -->
-                  <span class="method-name">createUserApiTest</span>
-                  <div class="stack-trace">java.lang.AssertionError: User creation failed! expected [201] but found [404]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:1419)
-	at org.testng.Assert.assertEquals(Assert.java:1383)
-	at API.getapi.createUserApiTest(getapi.java:42)
+                  <a name="addTaskWithAllFieldsTest">
+                  </a> <!-- addTaskWithAllFieldsTest -->
+                  <span class="method-name">addTaskWithAllFieldsTest</span>
+                  <div class="stack-trace">com.microsoft.playwright.PlaywrightException: Error {
+  message=&apos;Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+  name=&apos;Error
+  stack=&apos;Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
+    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
+    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
+    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+}
+Call log:
+- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
+	at com.microsoft.playwright.Locator.click(Locator.java:2406)
+	at pms.Addtaskflow.addTaskWithAllFieldsTest(Addtaskflow.java:162)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -177,26 +217,89 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message=&apos;Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+  name=&apos;Error
+  stack=&apos;Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
+    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
+    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
+    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+}
+Call log:
+- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 38 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-skipped">
-            <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
-              <span class="class-name">API.getapi</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="loginApiTest">
-                  </a> <!-- loginApiTest -->
-                  <span class="method-name">loginApiTest</span>
-                  <div class="stack-trace">java.lang.Throwable: Method API.getapi.loginApiTest() on instance API.getapi@22e357dc depends on not successfully finished methods 
-[API.getapi.createUserApiTest() on instance API.getapi@22e357dc]
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+                  <a name="addTaskWithMandatoryFieldsTest">
+                  </a> <!-- addTaskWithMandatoryFieldsTest -->
+                  <span class="method-name">addTaskWithMandatoryFieldsTest</span>
+                  <div class="stack-trace">com.microsoft.playwright.PlaywrightException: Error {
+  message=&apos;Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+  name=&apos;Error
+  stack=&apos;Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
+    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
+    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
+    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+}
+Call log:
+- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
+	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
+	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
+	at com.microsoft.playwright.Locator.click(Locator.java:2406)
+	at pms.Addtaskflow.addTaskWithMandatoryFieldsTest(Addtaskflow.java:134)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
 	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
 	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
@@ -215,16 +318,66 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message=&apos;Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+  name=&apos;Error
+  stack=&apos;Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;)) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k&quot;&gt;…&lt;/button&gt; aka locator(&quot;#root&quot;).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
+    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
+    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
+    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
+    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+}
+Call log:
+- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add Task&quot;))
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
+	... 38 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-skipped -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">pms.Addtaskflow</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="openTaskMenuTest">
+                  </a> <!-- openTaskMenuTest -->
+                  <span class="method-name">openTaskMenuTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validateAddButtonWithoutProjectTest">
+                  </a> <!-- validateAddButtonWithoutProjectTest -->
+                  <span class="method-name">validateAddButtonWithoutProjectTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\AVITA\AppData\Local\Temp\testng-eclipse--573290125\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\AVITA\AppData\Local\Temp\testng-eclipse-328340871\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -233,7 +386,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;API.getapi&quot;/&gt;
+      &lt;class name=&quot;pms.Addtaskflow&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -273,20 +426,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createUserApiTest')
-data.setCell(0, 2, 'API.getapi')
-data.setCell(0, 3, 740);
+data.setCell(0, 1, 'openTaskMenuTest')
+data.setCell(0, 2, 'pms.Addtaskflow')
+data.setCell(0, 3, 3229);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'loginApiTest')
-data.setCell(1, 2, 'API.getapi')
-data.setCell(1, 3, 0);
+data.setCell(1, 1, 'validateAddButtonWithoutProjectTest')
+data.setCell(1, 2, 'pms.Addtaskflow')
+data.setCell(1, 3, 2409);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'addTaskWithMandatoryFieldsTest')
+data.setCell(2, 2, 'pms.Addtaskflow')
+data.setCell(2, 3, 180);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'addTaskWithAllFieldsTest')
+data.setCell(3, 2, 'pms.Addtaskflow')
+data.setCell(3, 3, 71);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 740 ms</span>
+              <span class="suite-total-time">Total running time: 5 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -312,20 +473,34 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">API.getapi</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">pms.Addtaskflow</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setup</span>
+                <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <span class="method-name">openTaskMenuTest</span>
+                <span class="method-start">22532 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">validateAddButtonWithoutProjectTest</span>
+                <span class="method-start">25783 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">createUserApiTest</span>
-                <span class="method-start">6787 ms</span>
+                <span class="method-name">addTaskWithMandatoryFieldsTest</span>
+                <span class="method-start">28196 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">addTaskWithAllFieldsTest</span>
+                <span class="method-start">28393 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
-                <span class="method-name">teardown</span>
-                <span class="method-start">7538 ms</span>
+                <span class="method-name">tearDown</span>
+                <span class="method-start">28471 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
