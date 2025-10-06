@@ -5,10 +5,9 @@
     <classes>
       <class name="pms.Addtaskflow">
         <methods>
-          <include name="addTaskWithAllFieldsTest"/>
           <include name="setUp"/>
+          <include name="addTaskFlow"/>
           <include name="tearDown"/>
-          <include name="addTaskWithMandatoryFieldsTest"/>
         </methods>
       </class> <!-- pms.Addtaskflow -->
     </classes>

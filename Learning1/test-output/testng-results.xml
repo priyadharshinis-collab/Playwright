@@ -1,78 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="2" failed="2" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-30T12:09:17 IST" name="Default suite" finished-at="2025-09-30T12:09:46 IST" duration-ms="29202">
+  <suite started-at="2025-10-06T17:01:12 IST" name="Default suite" finished-at="2025-10-06T17:01:59 IST" duration-ms="47465">
     <groups>
     </groups>
-    <test started-at="2025-09-30T12:09:17 IST" name="Default test" finished-at="2025-09-30T12:09:46 IST" duration-ms="29202">
+    <test started-at="2025-10-06T17:01:12 IST" name="Default test" finished-at="2025-10-06T17:01:59 IST" duration-ms="47465">
       <class name="pms.Addtaskflow">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:pms.Addtaskflow@15bbf42f]" started-at="2025-09-30T12:09:17 IST" name="setUp" finished-at="2025-09-30T12:09:39 IST" duration-ms="22517" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:pms.Addtaskflow@49912c99]" started-at="2025-10-06T17:01:12 IST" name="setUp" finished-at="2025-10-06T17:01:21 IST" duration-ms="9586" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="openTaskMenuTest()[pri:1, instance:pms.Addtaskflow@15bbf42f]" started-at="2025-09-30T12:09:39 IST" name="openTaskMenuTest" finished-at="2025-09-30T12:09:43 IST" duration-ms="3229" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openTaskMenuTest -->
-        <test-method signature="validateAddButtonWithoutProjectTest()[pri:2, instance:pms.Addtaskflow@15bbf42f]" started-at="2025-09-30T12:09:43 IST" name="validateAddButtonWithoutProjectTest" finished-at="2025-09-30T12:09:45 IST" duration-ms="2409" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateAddButtonWithoutProjectTest -->
-        <test-method signature="addTaskWithMandatoryFieldsTest()[pri:3, instance:pms.Addtaskflow@15bbf42f]" started-at="2025-09-30T12:09:45 IST" name="addTaskWithMandatoryFieldsTest" finished-at="2025-09-30T12:09:45 IST" duration-ms="180" status="FAIL">
-          <exception class="com.microsoft.playwright.PlaywrightException">
+        <test-method signature="addTaskFlow()[pri:0, instance:pms.Addtaskflow@49912c99]" started-at="2025-10-06T17:01:21 IST" name="addTaskFlow" finished-at="2025-10-06T17:01:59 IST" duration-ms="37548" status="FAIL">
+          <exception class="com.microsoft.playwright.TimeoutError">
             <message>
               <![CDATA[Error {
-  message='Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-  name='Error
-  stack='Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\progress.js:78:26)
+    at Frame.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\frames.js:1013:23)
+    at FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:361:39)
 }
 Call log:
-- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task"))
+- waiting for locator("ul[role='listbox'] li[role='option']").first()
 ]]>
             </message>
             <full-stacktrace>
-              <![CDATA[com.microsoft.playwright.PlaywrightException: Error {
-  message='Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-  name='Error
-  stack='Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+              <![CDATA[com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\progress.js:78:26)
+    at Frame.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\frames.js:1013:23)
+    at FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:361:39)
 }
 Call log:
-- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task"))
+- waiting for locator("ul[role='listbox'] li[role='option']").first()
 
-at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
+at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
 at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
 at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
 at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
@@ -85,7 +55,7 @@ at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:
 at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
 at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
 at com.microsoft.playwright.Locator.click(Locator.java:2406)
-at pms.Addtaskflow.addTaskWithMandatoryFieldsTest(Addtaskflow.java:134)
+at pms.Addtaskflow.addTaskFlow(Addtaskflow.java:136)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -112,168 +82,30 @@ at org.testng.TestNG.run(TestNG.java:1079)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.impl.DriverException: Error {
-  message='Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-  name='Error
-  stack='Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\progress.js:78:26)
+    at Frame.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\frames.js:1013:23)
+    at FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\frameDispatcher.js:157:30)
+    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:94:40)
+    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:361:39)
 }
 Call log:
-- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task"))
+- waiting for locator("ul[role='listbox'] li[role='option']").first()
 
-at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
+at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
 at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
 at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
 ... 38 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- com.microsoft.playwright.PlaywrightException -->
+          </exception> <!-- com.microsoft.playwright.TimeoutError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addTaskWithMandatoryFieldsTest -->
-        <test-method signature="addTaskWithAllFieldsTest()[pri:4, instance:pms.Addtaskflow@15bbf42f]" started-at="2025-09-30T12:09:45 IST" name="addTaskWithAllFieldsTest" finished-at="2025-09-30T12:09:45 IST" duration-ms="71" status="FAIL">
-          <exception class="com.microsoft.playwright.PlaywrightException">
-            <message>
-              <![CDATA[Error {
-  message='Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-  name='Error
-  stack='Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
-}
-Call log:
-- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task"))
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[com.microsoft.playwright.PlaywrightException: Error {
-  message='Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-  name='Error
-  stack='Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
-}
-Call log:
-- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task"))
-
-at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
-at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
-at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
-at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
-at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
-at com.microsoft.playwright.Locator.click(Locator.java:2406)
-at pms.Addtaskflow.addTaskWithAllFieldsTest(Addtaskflow.java:162)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:739)
-at org.testng.TestRunner.run(TestRunner.java:614)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.impl.DriverException: Error {
-  message='Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-  name='Error
-  stack='Error: Error: strict mode violation: getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task")) resolved to 2 elements:
-    1) <button tabindex="0" type="button" class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded-0 rounded-start AddButton css-1c69r7k">…</button> aka locator("#root").getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-    2) <button class="R_btn">…</button> aka getByRole(AriaRole.DIALOG).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName("Add Task"))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:959:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\frames.js:1014:29
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\frameDispatcher.js:157:12)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-2268728127584697532\package\lib\server\dispatchers\dispatcher.js:96:14)
-}
-Call log:
-- waiting for getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add Task"))
-
-at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
-at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
-at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-... 38 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- com.microsoft.playwright.PlaywrightException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addTaskWithAllFieldsTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pms.Addtaskflow@15bbf42f]" started-at="2025-09-30T12:09:45 IST" name="tearDown" finished-at="2025-09-30T12:09:46 IST" duration-ms="692" status="PASS">
+        </test-method> <!-- addTaskFlow -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pms.Addtaskflow@49912c99]" started-at="2025-10-06T17:01:59 IST" name="tearDown" finished-at="2025-10-06T17:01:59 IST" duration-ms="277" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
