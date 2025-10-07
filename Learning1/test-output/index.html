@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\AVITA\AppData\Local\Temp\testng-eclipse--1457059754\testng-customsuite.xml</span>
+                    <span>C:\Users\AVITA\AppData\Local\Temp\testng-eclipse-1338561877\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -103,10 +103,24 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="pms.Addtaskflow" class="method navigator-link" hash-for-method="addTaskFlow">addTaskFlow</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testNegative_EmptyProjectTitle">testNegative_EmptyProjectTitle</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testPositive_AddProjectSuccessfully">testPositive_AddProjectSuccessfully</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -121,41 +135,49 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">pms.Addtaskflow</span>
+              <span class="class-name">pms.Addprojectflow</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="addTaskFlow">
-                  </a> <!-- addTaskFlow -->
-                  <span class="method-name">addTaskFlow</span>
-                  <div class="stack-trace">com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\progress.js:78:26)
-    at Frame.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\frames.js:1013:23)
-    at FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\frameDispatcher.js:157:30)
-    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:94:40)
-    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:361:39)
+                  <a name="testNegative_EmptyProjectTitle">
+                  </a> <!-- testNegative_EmptyProjectTitle -->
+                  <span class="method-name">testNegative_EmptyProjectTitle</span>
+                  <div class="stack-trace">com.microsoft.playwright.PlaywrightException: Error {
+  message=&apos;Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
+
+  name=&apos;Error
+  stack=&apos;Error: Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
+
+    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\chromium\crExecutionContext.js:92:33)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
+    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\javascript.js:242:12)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:640:22
+    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:929:24)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:626:14
+    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\progress.js:82:22)
+    at async FrameDispatcher.waitForSelector (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\frameDispatcher.js:105:85)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
+    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\dispatcher.js:96:14)
 }
 Call log:
-- waiting for locator(&quot;ul[role=&apos;listbox&apos;] li[role=&apos;option&apos;]&quot;).first()
+- waiting for locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) to be visible
 
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
 	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
 	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
 	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:252)
-	at com.microsoft.playwright.impl.FrameImpl.lambda$click$8(FrameImpl.java:243)
-	at com.microsoft.playwright.impl.LoggingSupport.lambda$withLogging$0(LoggingSupport.java:36)
+	at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1060)
+	at com.microsoft.playwright.impl.LocatorImpl.lambda$waitForImpl$7(LocatorImpl.java:619)
 	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
 	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:35)
-	at com.microsoft.playwright.impl.FrameImpl.click(FrameImpl.java:243)
-	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:160)
-	at com.microsoft.playwright.Locator.click(Locator.java:2406)
-	at pms.Addtaskflow.addTaskFlow(Addtaskflow.java:136)
+	at com.microsoft.playwright.impl.LocatorImpl.waitForImpl(LocatorImpl.java:619)
+	at com.microsoft.playwright.impl.LocatorImpl.waitFor(LocatorImpl.java:615)
+	at pms.Addprojectflow.testNegative_EmptyProjectTitle(Addprojectflow.java:101)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -182,33 +204,59 @@ Call log:
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.TimeoutError: Error {
-  message=&apos;Timeout 30000ms exceeded.
-  name=&apos;TimeoutError
-  stack=&apos;TimeoutError: Timeout 30000ms exceeded.
-    at ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\progress.js:78:26)
-    at Frame.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\frames.js:1013:23)
-    at FrameDispatcher.click (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\frameDispatcher.js:157:30)
-    at FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:94:40)
-    at DispatcherConnection.dispatch (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3812232851490882307\package\lib\server\dispatchers\dispatcher.js:361:39)
+Caused by: com.microsoft.playwright.impl.DriverException: Error {
+  message=&apos;Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
+
+  name=&apos;Error
+  stack=&apos;Error: Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
+    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
+    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
+
+    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\chromium\crExecutionContext.js:92:33)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
+    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\javascript.js:242:12)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:640:22
+    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:929:24)
+    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:626:14
+    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\progress.js:82:22)
+    at async FrameDispatcher.waitForSelector (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\frameDispatcher.js:105:85)
+    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
+    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\dispatcher.js:96:14)
 }
 Call log:
-- waiting for locator(&quot;ul[role=&apos;listbox&apos;] li[role=&apos;option&apos;]&quot;).first()
+- waiting for locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) to be visible
 
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:254)
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
 	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
 	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-	... 38 more
+	... 35 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">pms.Addprojectflow</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testPositive_AddProjectSuccessfully">
+                  </a> <!-- testPositive_AddProjectSuccessfully -->
+                  <span class="method-name">testPositive_AddProjectSuccessfully</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\AVITA\AppData\Local\Temp\testng-eclipse--1457059754\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\AVITA\AppData\Local\Temp\testng-eclipse-1338561877\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -217,7 +265,7 @@ Call log:
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;pms.Addtaskflow&quot;/&gt;
+      &lt;class name=&quot;pms.Addprojectflow&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -257,16 +305,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'addTaskFlow')
-data.setCell(0, 2, 'pms.Addtaskflow')
-data.setCell(0, 3, 37548);
+data.setCell(0, 1, 'testPositive_AddProjectSuccessfully')
+data.setCell(0, 2, 'pms.Addprojectflow')
+data.setCell(0, 3, 3655);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testNegative_EmptyProjectTitle')
+data.setCell(1, 2, 'pms.Addprojectflow')
+data.setCell(1, 3, 59);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 37 seconds</span>
+              <span class="suite-total-time">Total running time: 3 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -292,20 +344,24 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">pms.Addtaskflow</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">pms.Addprojectflow</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <span class="method-name">testPositive_AddProjectSuccessfully</span>
+                <span class="method-start">12932 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">addTaskFlow</span>
-                <span class="method-start">9597 ms</span>
+                <span class="method-name">testNegative_EmptyProjectTitle</span>
+                <span class="method-start">16592 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">47164 ms</span>
+                <span class="method-start">16657 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

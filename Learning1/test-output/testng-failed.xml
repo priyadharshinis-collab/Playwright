@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pms.Addtaskflow">
+      <class name="pms.Addprojectflow">
         <methods>
-          <include name="setUp"/>
-          <include name="addTaskFlow"/>
           <include name="tearDown"/>
+          <include name="testNegative_EmptyProjectTitle"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- pms.Addtaskflow -->
+      </class> <!-- pms.Addprojectflow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
