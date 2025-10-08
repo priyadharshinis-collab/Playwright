@@ -5,9 +5,11 @@
     <classes>
       <class name="pms.Addprojectflow">
         <methods>
+          <include name="testNegative_InvalidDateOrder"/>
           <include name="tearDown"/>
-          <include name="testNegative_EmptyProjectTitle"/>
+          <include name="testNegative_EmptyOwner"/>
           <include name="setUp"/>
+          <include name="filledAllFieldsAndCreatedProject"/>
         </methods>
       </class> <!-- pms.Addprojectflow -->
     </classes>

@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\AVITA\AppData\Local\Temp\testng-eclipse-1338561877\testng-customsuite.xml</span>
+                    <span>C:\Users\AVITA\AppData\Local\Temp\testng-eclipse--921956829\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,21 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testNegative_EmptyProjectTitle">testNegative_EmptyProjectTitle</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -115,6 +101,26 @@
                       <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
                     <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="filledAllFieldsAndCreatedProject">filledAllFieldsAndCreatedProject</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testNegative_EmptyOwner">testNegative_EmptyOwner</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testNegative_EmptyProjectTitle">testNegative_EmptyProjectTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testNegative_InvalidDateOrder">testNegative_InvalidDateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="pms.Addprojectflow" class="method navigator-link" hash-for-method="testPositive_AddProjectSuccessfully">testPositive_AddProjectSuccessfully</a> <!-- method navigator-link -->
@@ -132,118 +138,40 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">pms.Addprojectflow</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="testNegative_EmptyProjectTitle">
-                  </a> <!-- testNegative_EmptyProjectTitle -->
-                  <span class="method-name">testNegative_EmptyProjectTitle</span>
-                  <div class="stack-trace">com.microsoft.playwright.PlaywrightException: Error {
-  message=&apos;Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
-    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
-    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
-
-  name=&apos;Error
-  stack=&apos;Error: Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
-    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
-    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:640:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:626:14
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.waitForSelector (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\frameDispatcher.js:105:85)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\dispatcher.js:96:14)
-}
-Call log:
-- waiting for locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) to be visible
-
-	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:56)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:120)
-	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:130)
-	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:106)
-	at com.microsoft.playwright.impl.FrameImpl.waitForSelectorImpl(FrameImpl.java:1060)
-	at com.microsoft.playwright.impl.LocatorImpl.lambda$waitForImpl$7(LocatorImpl.java:619)
-	at com.microsoft.playwright.impl.LoggingSupport.withLogging(LoggingSupport.java:47)
-	at com.microsoft.playwright.impl.ChannelOwner.withLogging(ChannelOwner.java:89)
-	at com.microsoft.playwright.impl.LocatorImpl.waitForImpl(LocatorImpl.java:619)
-	at com.microsoft.playwright.impl.LocatorImpl.waitFor(LocatorImpl.java:615)
-	at pms.Addprojectflow.testNegative_EmptyProjectTitle(Addprojectflow.java:101)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: com.microsoft.playwright.impl.DriverException: Error {
-  message=&apos;Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
-    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
-    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
-
-  name=&apos;Error
-  stack=&apos;Error: Error: strict mode violation: locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) resolved to 2 elements:
-    1) &lt;button tabindex=&quot;0&quot; type=&quot;button&quot; class=&quot;MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary rounded text-capitalize AddButton me-3 ms-2 css-1c69r7k&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Projects&quot;))
-    2) &lt;button class=&quot;R_btn&quot;&gt;…&lt;/button&gt; aka getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(&quot;Add New Project&quot;).setExact(true))
-
-    at CRExecutionContext.evaluateWithArguments (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\chromium\crExecutionContext.js:92:33)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
-    at async evaluateExpression (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\javascript.js:242:12)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:640:22
-    at async Frame.retryWithProgressAndTimeouts (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:929:24)
-    at async C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\frames.js:626:14
-    at async ProgressController.run (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\progress.js:82:22)
-    at async FrameDispatcher.waitForSelector (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\frameDispatcher.js:105:85)
-    at async LongStandingScope._race (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\utils\manualPromise.js:96:14)
-    at async FrameDispatcher._handleCommand (C:\Users\AVITA\AppData\Local\Temp\playwright-java-3574917357137268746\package\lib\server\dispatchers\dispatcher.js:96:14)
-}
-Call log:
-- waiting for locator(&quot;button:has-text(&apos;Add New Project&apos;)&quot;) to be visible
-
-	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:259)
-	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:211)
-	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:118)
-	... 35 more
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
               <span class="class-name">pms.Addprojectflow</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="filledAllFieldsAndCreatedProject">
+                  </a> <!-- filledAllFieldsAndCreatedProject -->
+                  <span class="method-name">filledAllFieldsAndCreatedProject</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegative_EmptyOwner">
+                  </a> <!-- testNegative_EmptyOwner -->
+                  <span class="method-name">testNegative_EmptyOwner</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegative_EmptyProjectTitle">
+                  </a> <!-- testNegative_EmptyProjectTitle -->
+                  <span class="method-name">testNegative_EmptyProjectTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testNegative_InvalidDateOrder">
+                  </a> <!-- testNegative_InvalidDateOrder -->
+                  <span class="method-name">testNegative_InvalidDateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="testPositive_AddProjectSuccessfully">
@@ -256,7 +184,7 @@ Call log:
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\AVITA\AppData\Local\Temp\testng-eclipse-1338561877\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\AVITA\AppData\Local\Temp\testng-eclipse--921956829\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -305,20 +233,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testPositive_AddProjectSuccessfully')
+data.setCell(0, 1, 'testNegative_EmptyProjectTitle')
 data.setCell(0, 2, 'pms.Addprojectflow')
-data.setCell(0, 3, 3655);
+data.setCell(0, 3, 9504);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testNegative_EmptyProjectTitle')
+data.setCell(1, 1, 'testPositive_AddProjectSuccessfully')
 data.setCell(1, 2, 'pms.Addprojectflow')
-data.setCell(1, 3, 59);
+data.setCell(1, 3, 4703);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testNegative_EmptyOwner')
+data.setCell(2, 2, 'pms.Addprojectflow')
+data.setCell(2, 3, 1792);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'filledAllFieldsAndCreatedProject')
+data.setCell(3, 2, 'pms.Addprojectflow')
+data.setCell(3, 3, 1646);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testNegative_InvalidDateOrder')
+data.setCell(4, 2, 'pms.Addprojectflow')
+data.setCell(4, 3, 810);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 18 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -351,17 +291,27 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">testPositive_AddProjectSuccessfully</span>
-                <span class="method-start">12932 ms</span>
+                <span class="method-start">20101 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">testNegative_EmptyProjectTitle</span>
-                <span class="method-start">16592 ms</span>
+                <span class="method-start">24811 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testNegative_EmptyOwner</span>
+                <span class="method-start">34319 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testNegative_InvalidDateOrder</span>
+                <span class="method-start">36115 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">filledAllFieldsAndCreatedProject</span>
+                <span class="method-start">36931 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">16657 ms</span>
+                <span class="method-start">38581 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
